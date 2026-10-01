@@ -1,0 +1,2446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mountain Haven | Kotgarh, Thanedar</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+/* =========================
+   ROOT
+========================= */
+
+:root{
+    --cream:#fbf7f1;
+    --cream-dark:#efe3d5;
+    --brown:#493127;
+    --brown-light:#705347;
+    --gold:#b98a50;
+    --gold-light:#e4c596;
+    --green:#707b6e;
+    --white:#ffffff;
+    --text:#30241f;
+    --muted:#776a62;
+    --border:rgba(48,36,31,.10);
+
+    --heading:"Playfair Display", serif;
+    --body:"DM Sans", sans-serif;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:var(--body);
+    background:var(--cream);
+    color:var(--text);
+    line-height:1.7;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+
+    background:rgba(251,247,241,.90);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid var(--border);
+}
+
+.nav-container{
+    min-height:78px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:25px;
+}
+
+.logo{
+    font-family:var(--heading);
+    font-size:25px;
+    font-weight:600;
+    color:var(--brown);
+}
+
+.logo span{
+    color:var(--gold);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:24px;
+}
+
+.nav-links a{
+    font-size:12px;
+    font-weight:700;
+    color:var(--brown-light);
+
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+.nav-button{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:12px 18px;
+
+    border-radius:50px;
+
+    background:var(--brown);
+    color:#fff;
+
+    font-size:12px;
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.nav-button:hover{
+    background:var(--gold);
+}
+
+/* CSS ONLY MOBILE MENU */
+
+.menu-toggle{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+}
+
+.menu-btn{
+    display:none;
+    color:var(--brown);
+    font-size:23px;
+    cursor:pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+
+    display:flex;
+    align-items:flex-end;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(28,20,17,.72),
+            rgba(28,20,17,.25),
+            rgba(28,20,17,.12)
+        ),
+        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2200&q=90")
+        center/cover no-repeat;
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+    inset:auto 0 0 0;
+
+    height:48%;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(24,18,15,.82),
+            transparent
+        );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    width:min(1180px,92%);
+    margin:auto;
+
+    padding-bottom:85px;
+}
+
+.hero-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+
+    padding:8px 14px;
+
+    border-radius:50px;
+    border:1px solid rgba(255,255,255,.28);
+
+    background:rgba(255,255,255,.10);
+    backdrop-filter:blur(10px);
+
+    font-size:10px;
+    font-weight:700;
+
+    letter-spacing:1.8px;
+    text-transform:uppercase;
+}
+
+.hero h1{
+    max-width:900px;
+
+    margin-top:18px;
+
+    font-family:var(--heading);
+    font-size:clamp(50px,7vw,90px);
+
+    line-height:1;
+    letter-spacing:-2px;
+}
+
+.hero h1 em{
+    color:var(--gold-light);
+    font-style:italic;
+}
+
+.hero-description{
+    max-width:650px;
+
+    margin-top:20px;
+
+    font-size:16px;
+    color:rgba(255,255,255,.91);
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+
+    margin-top:28px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+
+    padding:14px 22px;
+
+    border-radius:50px;
+
+    font-size:12px;
+    font-weight:700;
+
+    transition:.25s ease;
+}
+
+.btn-light{
+    background:white;
+    color:var(--brown);
+}
+
+.btn-gold{
+    background:var(--gold);
+    color:white;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.hero-pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+
+    margin-top:28px;
+}
+
+.hero-pill{
+    padding:9px 13px;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.20);
+
+    backdrop-filter:blur(10px);
+
+    font-size:11px;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro{
+    padding:100px 0 85px;
+}
+
+.intro-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:60px;
+    align-items:end;
+}
+
+.eyebrow{
+    color:var(--gold);
+
+    font-size:10px;
+    font-weight:800;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+.intro h2,
+.section-heading h2{
+    margin:14px 0 20px;
+
+    font-family:var(--heading);
+    font-size:clamp(40px,5vw,63px);
+
+    line-height:1.08;
+    letter-spacing:-1px;
+}
+
+.intro h2 em,
+.section-heading h2 em{
+    color:var(--brown-light);
+    font-style:italic;
+}
+
+.intro-text{
+    max-width:700px;
+    color:var(--muted);
+}
+
+.intro-card{
+    padding:30px;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+    border-radius:22px;
+
+    box-shadow:
+        0 20px 50px rgba(50,33,24,.07);
+}
+
+.intro-card h3{
+    font-family:var(--heading);
+    font-size:28px;
+    color:var(--brown);
+}
+
+.intro-card p{
+    margin-top:6px;
+
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+    padding:100px 0;
+}
+
+.soft-section{
+    background:#eef1ed;
+}
+
+.section-heading{
+    max-width:730px;
+    margin-bottom:48px;
+}
+
+.section-heading > p:last-child{
+    color:var(--muted);
+}
+
+/* =========================
+   HIGHLIGHTS
+========================= */
+
+.highlight-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.highlight-card{
+    background:white;
+
+    padding:29px;
+
+    border:1px solid var(--border);
+    border-radius:20px;
+
+    transition:.3s;
+}
+
+.highlight-card:hover{
+    transform:translateY(-7px);
+
+    box-shadow:
+        0 22px 45px rgba(45,30,22,.08);
+}
+
+.highlight-icon{
+    width:52px;
+    height:52px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:#f2e5d8;
+    color:var(--gold);
+
+    margin-bottom:20px;
+}
+
+.highlight-card h3{
+    font-family:var(--heading);
+    font-size:24px;
+    color:var(--brown);
+
+    margin-bottom:7px;
+}
+
+.highlight-card p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* =========================
+   SPLIT EXPERIENCE
+========================= */
+
+.experience-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.experience-card{
+    min-height:370px;
+
+    position:relative;
+
+    border-radius:25px;
+    overflow:hidden;
+
+    background-size:cover;
+    background-position:center;
+
+    color:white;
+}
+
+.experience-card::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(20,15,13,.78),
+            rgba(20,15,13,.05)
+        );
+}
+
+.experience-content{
+    position:absolute;
+
+    left:30px;
+    right:30px;
+    bottom:28px;
+
+    z-index:2;
+}
+
+.experience-content span{
+    color:#e7c895;
+
+    font-size:10px;
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+.experience-content h3{
+    margin:7px 0;
+
+    font-family:var(--heading);
+
+    font-size:36px;
+    line-height:1.06;
+}
+
+.experience-content p{
+    font-size:13px;
+
+    color:rgba(255,255,255,.88);
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+    background:#fffaf4;
+}
+
+.gallery-grid{
+    display:grid;
+
+    grid-template-columns:1.35fr .8fr .8fr;
+
+    grid-template-rows:270px 270px;
+
+    gap:14px;
+}
+
+.gallery-item{
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:20px;
+}
+
+.gallery-item.large{
+    grid-row:span 2;
+}
+
+.gallery-item img{
+    height:100%;
+    object-fit:cover;
+
+    transition:.6s ease;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.06);
+}
+
+.gallery-label{
+    position:absolute;
+
+    left:15px;
+    bottom:15px;
+
+    padding:8px 13px;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.92);
+
+    color:var(--brown);
+
+    font-size:10px;
+    font-weight:800;
+}
+
+/* =========================
+   AMENITIES
+========================= */
+
+.amenities-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:60px;
+
+    align-items:center;
+}
+
+.amenities-image{
+    min-height:560px;
+
+    border-radius:28px;
+
+    overflow:hidden;
+}
+
+.amenities-image img{
+    height:100%;
+    object-fit:cover;
+}
+
+.amenities-list{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+}
+
+.amenity{
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    padding:19px;
+
+    border-radius:16px;
+}
+
+.amenity i{
+    color:var(--gold);
+
+    margin-right:7px;
+}
+
+.amenity span{
+    color:var(--brown);
+
+    font-size:12px;
+    font-weight:700;
+}
+
+/* =========================
+   LOCATION
+========================= */
+
+.location{
+    background:var(--brown);
+
+    color:white;
+}
+
+.location-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:55px;
+
+    align-items:center;
+}
+
+.location .eyebrow{
+    color:#e5c48f;
+}
+
+.location h2{
+    margin:15px 0 18px;
+
+    font-family:var(--heading);
+
+    font-size:clamp(40px,5vw,63px);
+
+    line-height:1.05;
+}
+
+.location h2 em{
+    color:#e6c99d;
+
+    font-style:italic;
+}
+
+.location-text{
+    max-width:600px;
+
+    color:#d8ccc5;
+}
+
+.location-tags{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:9px;
+
+    margin-top:25px;
+}
+
+.location-tag{
+    padding:9px 12px;
+
+    border:1px solid rgba(255,255,255,.18);
+
+    border-radius:50px;
+
+    color:#eee2db;
+
+    font-size:10px;
+}
+
+.location-image{
+    min-height:470px;
+
+    border-radius:28px;
+
+    overflow:hidden;
+}
+
+.location-image img{
+    height:100%;
+    object-fit:cover;
+}
+
+/* =========================
+   ATTRACTIONS
+========================= */
+
+.attraction-grid{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:15px;
+}
+
+.attraction{
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:21px;
+
+    padding:18px;
+
+    transition:.3s;
+}
+
+.attraction:hover{
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 18px 40px rgba(46,29,21,.08);
+}
+
+.attraction img{
+    height:190px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    margin-bottom:16px;
+}
+
+.attraction small{
+    color:var(--gold);
+
+    font-size:9px;
+    font-weight:800;
+
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.attraction h3{
+    margin-top:5px;
+
+    font-family:var(--heading);
+
+    color:var(--brown);
+
+    font-size:23px;
+}
+
+.attraction p{
+    margin-top:5px;
+
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+/* =========================
+   HOST
+========================= */
+
+.host{
+    background:var(--cream-dark);
+}
+
+.host-grid{
+    display:grid;
+
+    grid-template-columns:.75fr 1.25fr;
+
+    gap:65px;
+
+    align-items:center;
+}
+
+.host-photo{
+    position:relative;
+}
+
+.host-photo img{
+    height:510px;
+
+    object-fit:cover;
+
+    border-radius:
+        220px 220px
+        25px 25px;
+}
+
+.host-badge{
+    position:absolute;
+
+    right:-18px;
+    bottom:25px;
+
+    padding:17px 19px;
+
+    border-radius:16px;
+
+    background:white;
+
+    box-shadow:
+        0 18px 40px rgba(50,31,22,.12);
+}
+
+.host-badge strong{
+    display:block;
+
+    color:var(--brown);
+
+    font-family:var(--heading);
+}
+
+.host-badge span{
+    color:var(--muted);
+
+    font-size:10px;
+}
+
+.host h2{
+    margin:14px 0 18px;
+
+    font-family:var(--heading);
+
+    font-size:clamp(40px,5vw,61px);
+
+    line-height:1.06;
+}
+
+.host h2 em{
+    color:var(--brown-light);
+}
+
+.host-text{
+    max-width:620px;
+
+    color:var(--muted);
+
+    font-size:14px;
+}
+
+.signature{
+    margin-top:23px;
+
+    font-family:var(--heading);
+
+    font-size:24px;
+
+    color:var(--brown);
+}
+
+/* =========================
+   PRICING
+========================= */
+
+.pricing{
+    background:#f7f0e8;
+}
+
+.price-grid{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:14px;
+}
+
+.price-card{
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:27px;
+}
+
+.price-card.featured{
+    background:var(--brown);
+
+    color:#fff;
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 24px 48px rgba(55,36,27,.18);
+}
+
+.price-card small{
+    color:var(--gold);
+
+    font-size:9px;
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+.price-card.featured small{
+    color:#e6c893;
+}
+
+.price-card h3{
+    margin:10px 0;
+
+    font-family:var(--heading);
+
+    font-size:24px;
+}
+
+.price{
+    font-size:29px;
+
+    font-weight:800;
+}
+
+.price span{
+    color:var(--muted);
+
+    font-size:10px;
+
+    font-weight:500;
+}
+
+.price-card.featured .price span{
+    color:#d6cac3;
+}
+
+.price-card p{
+    margin-top:10px;
+
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+.price-card.featured p{
+    color:#d8cbc4;
+}
+
+.price-note{
+    margin-top:22px;
+
+    color:var(--muted);
+
+    font-size:11px;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    min-height:520px;
+
+    display:grid;
+    place-items:center;
+
+    text-align:center;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            rgba(42,28,22,.63),
+            rgba(42,28,22,.63)
+        ),
+        url("https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=2200&q=90")
+        center/cover no-repeat;
+}
+
+.cta-content{
+    max-width:760px;
+
+    padding:35px;
+}
+
+.cta .eyebrow{
+    color:#e7c795;
+}
+
+.cta h2{
+    margin:12px 0 18px;
+
+    font-family:var(--heading);
+
+    font-size:clamp(46px,6vw,75px);
+
+    line-height:1.04;
+}
+
+.cta h2 em{
+    color:#e6c999;
+
+    font-style:italic;
+}
+
+.cta p{
+    max-width:650px;
+
+    margin:0 auto 27px;
+
+    color:#eee1d9;
+
+    font-size:14px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#201713;
+
+    color:white;
+
+    padding:55px 0 25px;
+}
+
+.footer-grid{
+    display:grid;
+
+    grid-template-columns:1.2fr .8fr .8fr;
+
+    gap:35px;
+}
+
+.footer-brand h3{
+    font-family:var(--heading);
+
+    font-size:29px;
+}
+
+.footer-brand h3 span{
+    color:#d0a76c;
+}
+
+.footer-brand p{
+    max-width:370px;
+
+    margin-top:6px;
+
+    color:#a99a92;
+
+    font-size:12px;
+}
+
+.footer-title{
+    margin-bottom:14px;
+
+    color:#d2aa70;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+.footer-links a,
+.footer-links p{
+    display:block;
+
+    margin:5px 0;
+
+    color:#c8b9b1;
+
+    font-size:12px;
+}
+
+.footer-bottom{
+    margin-top:35px;
+
+    padding-top:18px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    text-align:center;
+
+    color:#81736d;
+
+    font-size:10px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        position:absolute;
+
+        top:78px;
+        left:0;
+        right:0;
+
+        padding:24px;
+
+        background:var(--cream);
+
+        border-bottom:1px solid var(--border);
+
+        display:none;
+
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+    .menu-toggle:checked ~ .nav-links{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .nav-button{
+        display:none;
+    }
+
+    .highlight-grid,
+    .attraction-grid,
+    .price-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .intro-grid,
+    .amenities-grid,
+    .location-grid,
+    .host-grid{
+        grid-template-columns:1fr;
+    }
+
+    .experience-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr 1fr;
+
+        grid-template-rows:
+            260px
+            260px
+            260px;
+    }
+
+    .gallery-item.large{
+        grid-row:span 2;
+    }
+
+    .gallery-item:last-child{
+        grid-column:span 2;
+    }
+}
+
+@media(max-width:650px){
+
+    .nav-container{
+        min-height:70px;
+    }
+
+    .nav-links{
+        top:70px;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .hero{
+        min-height:760px;
+    }
+
+    .hero-content{
+        padding-bottom:58px;
+    }
+
+    .hero h1{
+        font-size:49px;
+        letter-spacing:-1px;
+    }
+
+    .hero-description{
+        font-size:14px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .section{
+        padding:78px 0;
+    }
+
+    .highlight-grid,
+    .attraction-grid,
+    .price-grid,
+    .amenities-list{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr;
+        grid-template-rows:auto;
+    }
+
+    .gallery-item.large{
+        grid-row:auto;
+    }
+
+    .gallery-item:last-child{
+        grid-column:auto;
+    }
+
+    .gallery-item{
+        min-height:260px;
+    }
+
+    .amenities-image,
+    .location-image{
+        min-height:360px;
+    }
+
+    .host-photo img{
+        height:430px;
+    }
+
+    .price-card.featured{
+        transform:none;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .footer-brand p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+        <a href="#home" class="logo">
+            Mountain <span>Haven</span>
+        </a>
+
+        <input
+            type="checkbox"
+            id="menuToggle"
+            class="menu-toggle"
+        >
+
+        <nav class="nav-links">
+
+            <a href="#home">Home</a>
+            <a href="#stay">The Stay</a>
+            <a href="#amenities">Amenities</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#explore">Explore</a>
+            <a href="#host">Host</a>
+            <a href="#pricing">Pricing</a>
+
+        </nav>
+
+        <a href="#contact" class="nav-button">
+            Reserve Your Stay
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <label for="menuToggle" class="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-tag">
+            <i class="fa-solid fa-mountain-sun"></i>
+
+            Kotgarh · Thanedar · Himachal Pradesh
+        </div>
+
+        <h1>
+            Wake Up To The
+            <em>Mountains.</em>
+        </h1>
+
+        <p class="hero-description">
+
+            A beautiful mountain retreat hosted by
+            <strong>Sakshi Kukreti</strong> — made for peaceful
+            mornings, warm conversations, breathtaking views,
+            and unforgettable Himachali moments.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#contact" class="btn btn-light">
+                Enquire To Book
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="#gallery" class="btn btn-gold">
+                View The Home
+                <i class="fa-solid fa-images"></i>
+            </a>
+
+        </div>
+
+        <div class="hero-pills">
+
+            <div class="hero-pill">
+                <i class="fa-solid fa-bed"></i>
+                4 Rooms
+            </div>
+
+            <div class="hero-pill">
+                <i class="fa-solid fa-bath"></i>
+                4 Attached Washrooms
+            </div>
+
+            <div class="hero-pill">
+                <i class="fa-solid fa-water-ladder"></i>
+                Swimming Pool
+            </div>
+
+            <div class="hero-pill">
+                <i class="fa-solid fa-bolt"></i>
+                24/7 Water & Electricity
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<section class="intro" id="stay">
+
+    <div class="container intro-grid">
+
+        <div>
+
+            <div class="eyebrow">
+                A Private Mountain Escape
+            </div>
+
+            <h2>
+                More Than A Stay,
+                <em>It's A Feeling.</em>
+            </h2>
+
+            <p class="intro-text">
+
+                Surrounded by mountains and breathtaking scenic views,
+                this spacious retreat in Kotgarh, Thanedar is designed
+                for people who want to slow down, breathe deeply, and
+                enjoy the beauty of Himachal Pradesh.
+
+                Step onto the beautiful balcony, gather in the spacious
+                hall, cook together in the big kitchen, and let the
+                mountains become part of your everyday view.
+
+            </p>
+
+        </div>
+
+        <div class="intro-card">
+
+            <h3>
+                Hosted By Sakshi Kukreti
+            </h3>
+
+            <p>
+
+                Warm hospitality, professional care, and a genuine
+                desire to make every guest feel comfortable,
+                welcome, and remembered.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     HIGHLIGHTS
+========================= -->
+
+<section class="section soft-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                Property Highlights
+            </div>
+
+            <h2>
+                Space To Gather.
+                <em>Views To Remember.</em>
+            </h2>
+
+            <p>
+
+                An ideal mountain stay for families, friends,
+                couples, and nature lovers looking for relaxation,
+                comfort, privacy, and beautiful surroundings.
+
+            </p>
+
+        </div>
+
+
+        <div class="highlight-grid">
+
+            <article class="highlight-card">
+
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-mountain"></i>
+                </div>
+
+                <h3>
+                    Breathtaking Views
+                </h3>
+
+                <p>
+                    Wake up to surrounding mountain scenery and
+                    enjoy peaceful Himalayan landscapes throughout
+                    the day.
+                </p>
+
+            </article>
+
+
+            <article class="highlight-card">
+
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-door-open"></i>
+                </div>
+
+                <h3>
+                    Four Rooms
+                </h3>
+
+                <p>
+                    Four comfortable rooms paired with four
+                    attached washrooms for convenience and privacy.
+                </p>
+
+            </article>
+
+
+            <article class="highlight-card">
+
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-couch"></i>
+                </div>
+
+                <h3>
+                    Spacious Hall
+                </h3>
+
+                <p>
+                    A generous common area for family evenings,
+                    games, conversations, celebrations, and relaxing.
+                </p>
+
+            </article>
+
+
+            <article class="highlight-card">
+
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-water-ladder"></i>
+                </div>
+
+                <h3>
+                    Swimming Pool
+                </h3>
+
+                <p>
+                    Enjoy a refreshing poolside experience while
+                    surrounded by the calm beauty of the mountains.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EXPERIENCE
+========================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                The Experience
+            </div>
+
+            <h2>
+                Slow Mornings.
+                <em>Golden Evenings.</em>
+            </h2>
+
+            <p>
+
+                Imagine a hot cup of tea on the balcony,
+                a long breakfast with your favourite people,
+                peaceful afternoons, and evenings wrapped in
+                mountain air.
+
+            </p>
+
+        </div>
+
+
+        <div class="experience-grid">
+
+
+            <article
+                class="experience-card"
+                style="
+                background-image:url(
+                'https://assets.cntraveller.in/photos/648813c055f4e187a0629f39/master/w_1600%2Cc_limit/Seetavalan%2520Orchard.jpeg'
+                );
+                "
+            >
+
+                <div class="experience-content">
+
+                    <span>
+                        01 · Balcony Mornings
+                    </span>
+
+                    <h3>
+                        Let The Mountains
+                        Do The Talking.
+                    </h3>
+
+                    <p>
+                        Sit back, sip slowly, and watch
+                        the hills change colour with the light.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="experience-card"
+                style="
+                background-image:url(
+                'https://c.ndtvimg.com/2026-04/tav450ho_apple_625x300_01_April_26.png?im=FeatureCrop%2Calgorithm%3Ddnn%2Cwidth%3D1000%2Cheight%3D560'
+                );
+                "
+            >
+
+                <div class="experience-content">
+
+                    <span>
+                        02 · Orchard Country
+                    </span>
+
+                    <h3>
+                        A Slower Side
+                        Of Himachal.
+                    </h3>
+
+                    <p>
+                        Explore Kotgarh's peaceful orchard
+                        landscapes and scenic mountain roads.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     GALLERY
+========================= -->
+
+<section class="section gallery" id="gallery">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                A Visual Escape
+            </div>
+
+            <h2>
+                Let The Views
+                <em>Win You Over.</em>
+            </h2>
+
+            <p>
+                Beautiful spaces, balcony moments, mountain landscapes,
+                orchards, and peaceful Himachali surroundings.
+            </p>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+
+            <div class="gallery-item large">
+
+                <img
+                    src="https://a0.muscache.com/im/pictures/c60f147c-1d06-4987-a289-6e30c1937d5e.jpg"
+                    alt="Mountain home with balcony"
+                >
+
+                <div class="gallery-label">
+                    Mountain Home
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://assets.cntraveller.in/photos/648813c055f4e187a0629f39/master/w_1600%2Cc_limit/Seetavalan%2520Orchard.jpeg"
+                    alt="Himalayan balcony"
+                >
+
+                <div class="gallery-label">
+                    Balcony Views
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=90"
+                    alt="Forest mountains"
+                >
+
+                <div class="gallery-label">
+                    Forest Escape
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://c.ndtvimg.com/2026-04/tav450ho_apple_625x300_01_April_26.png?im=FeatureCrop%2Calgorithm%3Ddnn%2Cwidth%3D1000%2Cheight%3D560"
+                    alt="Kotgarh apple orchards"
+                >
+
+                <div class="gallery-label">
+                    Apple Country
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://i.pinimg.com/736x/fd/7e/ba/fd7eba15a2af3bbf894c11f8dde565e4.jpg"
+                    alt="Tani Jubbar Lake"
+                >
+
+                <div class="gallery-label">
+                    Peaceful Lakes
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     AMENITIES
+========================= -->
+
+<section class="section" id="amenities">
+
+    <div class="container amenities-grid">
+
+
+        <div class="amenities-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1400&q=90"
+                alt="Luxury mountain retreat"
+            >
+
+        </div>
+
+
+        <div>
+
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    Comfort & Amenities
+                </div>
+
+                <h2>
+                    Everything You Need
+                    For A <em>Beautiful Stay.</em>
+                </h2>
+
+                <p>
+                    Thoughtfully arranged essentials that make
+                    longer family stays, romantic escapes, and
+                    group holidays comfortable and easy.
+                </p>
+
+            </div>
+
+
+            <div class="amenities-list">
+
+                <div class="amenity">
+                    <span>
+                        <i class="fa-solid fa-bed"></i>
+                        4 Rooms
+                    </span>
+                </div>
+
+                <div class="amenity">
+                    <span>
+                        <i class="fa-solid fa-bath"></i>
+                        4 Attached Washrooms
+                    </span>
+                </div>
+
+                <div class="amenity">
+                    <span>
+                        <i class="fa-solid fa-kitchen-set"></i>
+                        Big Kitchen
+                    </span>
+                </div>
+
+                <div class="amenity">
+                    <span>
+                        <i class="fa-solid fa-couch"></i>
+                        Spacious Hall
+                    </span>
+                </div>
+
+                <div class="amenity">
+                    <span>
+                        <i class="fa-solid fa-water-ladder"></i>
+                        Swimming Pool
+                    </span>
+                </div>
+
+                <div class="amenity">
+                    <span>
+                        <i class="fa-solid fa-droplet"></i>
+                        24/7 Water
+                    </span>
+                </div>
+
+                <div class="amenity">
+                    <span>
+                        <i class="fa-solid fa-bolt"></i>
+                        24/7 Electricity
+                    </span>
+                </div>
+
+                <div class="amenity">
+                    <span>
+                        <i class="fa-solid fa-mountain-sun"></i>
+                        Scenic Views
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LOCATION
+========================= -->
+
+<section class="section location">
+
+    <div class="container location-grid">
+
+
+        <div>
+
+            <div class="eyebrow">
+                Location
+            </div>
+
+            <h2>
+                Kotgarh, Thanedar —
+                <em>Quiet By Nature.</em>
+            </h2>
+
+            <p class="location-text">
+
+                Set in the scenic Kotgarh–Thanedar region of
+                Himachal Pradesh, this stay places you close to
+                beautiful orchard landscapes, peaceful forests,
+                mountain viewpoints, heritage spots, and nature
+                experiences.
+
+            </p>
+
+
+            <div class="location-tags">
+
+                <span class="location-tag">
+                    Mountain Views
+                </span>
+
+                <span class="location-tag">
+                    Apple Orchards
+                </span>
+
+                <span class="location-tag">
+                    Forest Walks
+                </span>
+
+                <span class="location-tag">
+                    Scenic Drives
+                </span>
+
+                <span class="location-tag">
+                    Peaceful Surroundings
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="location-image">
+
+            <img
+                src="https://assets.cntraveller.in/photos/648813c055f4e187a0629f39/master/w_1600%2Cc_limit/Seetavalan%2520Orchard.jpeg"
+                alt="Himalayan valley view"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ATTRACTIONS
+========================= -->
+
+<section class="section" id="explore">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                Nearby Attractions
+            </div>
+
+            <h2>
+                Go Out For A While.
+                <em>Come Back With A Memory.</em>
+            </h2>
+
+            <p>
+
+                From calm lakes and historic places to
+                high mountain viewpoints and orchard walks,
+                the surrounding region gives you plenty to explore.
+
+            </p>
+
+        </div>
+
+
+        <div class="attraction-grid">
+
+
+            <article class="attraction">
+
+                <img
+                    src="https://c.ndtvimg.com/2026-04/tav450ho_apple_625x300_01_April_26.png?im=FeatureCrop%2Calgorithm%3Ddnn%2Cwidth%3D1000%2Cheight%3D560"
+                    alt="Kotgarh apple orchards"
+                >
+
+                <small>
+                    Kotgarh
+                </small>
+
+                <h3>
+                    Apple Orchards
+                </h3>
+
+                <p>
+                    Explore the beautiful orchard country
+                    that gives Kotgarh and Thanedar their
+                    distinctive mountain character.
+                </p>
+
+            </article>
+
+
+            <article class="attraction">
+
+                <img
+                    src="https://3.bp.blogspot.com/-pTSTy1E3pFY/XCYn2gTvnyI/AAAAAAAAB0c/_thqnpnT2zwB5GlgwFtktvlwk4vlfXMugCLcBGAs/s1600/The-pretty-little-church-at-Kotgarh.jpg"
+                    alt="St Mary's Church Kotgarh"
+                >
+
+                <small>
+                    Heritage
+                </small>
+
+                <h3>
+                    St. Mary's Church
+                </h3>
+
+                <p>
+                    A historic church in the Kotgarh mission
+                    compound surrounded by peaceful orchard scenery.
+                </p>
+
+            </article>
+
+
+            <article class="attraction">
+
+    <img
+        src="https://s7ap1.scene7.com/is/image/incredibleindia/hatu-peak-shimla-himachal-pradesh-1-attr-hero?qlt=82&ts=1727352617013"
+        alt="Hatu Peak, Narkanda"
+    >
+
+    <small>
+        Narkanda
+    </small>
+
+    <h3>
+        Hatu Peak
+    </h3>
+
+    <p>
+        A high mountain excursion known for
+        dramatic Himalayan scenery and panoramic views.
+    </p>
+
+</article>
+
+            <article class="attraction">
+
+                <img
+                    src="https://i.pinimg.com/736x/fd/7e/ba/fd7eba15a2af3bbf894c11f8dde565e4.jpg"
+                    alt="Tani Jubbar Lake"
+                >
+
+                <small>
+                    Nature Escape
+                </small>
+
+                <h3>
+                    Tani Jubbar Lake
+                </h3>
+
+                <p>
+                    A peaceful lake surrounded by trees and
+                    quiet mountain landscapes, ideal for a calm outing.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     HOST
+========================= -->
+
+<section class="section host" id="host">
+
+    <div class="container host-grid">
+
+
+        <div class="host-photo">
+
+            <img
+                src="https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?auto=format&fit=crop&w=1100&q=90"
+                alt="Warm welcoming host"
+            >
+
+            <div class="host-badge">
+
+                <strong>
+                    Sakshi Kukreti
+                </strong>
+
+                <span>
+                    Your warm & welcoming host
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <div class="eyebrow">
+                Meet Your Host
+            </div>
+
+            <h2>
+                Warm Hospitality.
+                <em>Beautiful Memories.</em>
+            </h2>
+
+            <p class="host-text">
+
+                Sakshi Kukreti is committed to creating a stay
+                that feels welcoming, comfortable, and thoughtfully
+                cared for.
+
+            </p>
+
+            <p class="host-text">
+
+                Whether you arrive with family, friends, your partner,
+                or simply want a peaceful nature escape, the aim is
+                simple — to make your time in the mountains feel
+                relaxed, effortless, and memorable.
+
+            </p>
+
+            <div class="signature">
+                — Sakshi Kukreti
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PRICING
+========================= -->
+
+<section class="section pricing" id="pricing">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                Suggested Pricing
+            </div>
+
+            <h2>
+                Premium Comfort,
+                <em>Beautifully Positioned.</em>
+            </h2>
+
+            <p>
+
+                Suggested starting rates for the complete property.
+                Final pricing can be adjusted according to guest count,
+                holidays, season, pool availability, and demand.
+
+            </p>
+
+        </div>
+
+
+        <div class="price-grid">
+
+
+            <article class="price-card">
+
+                <small>
+                    Standard
+                </small>
+
+                <h3>
+                    Weekday
+                </h3>
+
+                <div class="price">
+                    ₹11,999
+                    <span>/ night</span>
+                </div>
+
+                <p>
+                    Suggested base rate for quieter
+                    Monday–Thursday mountain stays.
+                </p>
+
+            </article>
+
+
+            <article class="price-card featured">
+
+                <small>
+                    Weekend Escape
+                </small>
+
+                <h3>
+                    Weekend
+                </h3>
+
+                <div class="price">
+                    ₹14,999
+                    <span>/ night</span>
+                </div>
+
+                <p>
+                    Suggested Friday–Sunday rate for
+                    couples, families, and groups.
+                </p>
+
+            </article>
+
+
+            <article class="price-card">
+
+                <small>
+                    Peak Season
+                </small>
+
+                <h3>
+                    Peak / Festive
+                </h3>
+
+                <div class="price">
+                    ₹17,999
+                    <span>/ night</span>
+                </div>
+
+                <p>
+                    Suggested rate for high-demand
+                    dates, holidays, and special seasons.
+                </p>
+
+            </article>
+
+
+            <article class="price-card">
+
+                <small>
+                    Groups & Families
+                </small>
+
+                <h3>
+                    Full-Home Package
+                </h3>
+
+                <div class="price">
+                    ₹39,999
+                    <span>– ₹44,999 / night</span>
+                </div>
+
+                <p>
+                    Suggested package band for larger
+                    family or group bookings.
+                </p>
+
+            </article>
+
+        </div>
+
+
+        <p class="price-note">
+
+            Pricing above is a suggested positioning range,
+            not a live market quote. Consider keeping taxes,
+            cleaning charges, extra-guest charges, and seasonal
+            adjustments transparent.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta" id="contact">
+
+    <div class="cta-content">
+
+        <div class="eyebrow">
+            Your Mountain Escape Starts Here
+        </div>
+
+        <h2>
+            Come For The
+            <em>Views.</em><br>
+            Stay For The Feeling.
+        </h2>
+
+        <p>
+
+            Bring your favourite people, step onto the balcony,
+            breathe in the mountain air, and create your own
+            beautiful Himachali memories.
+
+        </p>
+
+        <!-- Replace the "#" with the owner's actual booking/contact link -->
+
+        <a href="#" class="btn btn-light">
+
+            Check Availability
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <h3>
+                    Mountain <span>Haven</span>
+                </h3>
+
+                <p>
+
+                    A peaceful mountain retreat in
+                    Kotgarh, Thanedar, Himachal Pradesh,
+                    hosted by Sakshi Kukreti.
+
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <div class="footer-title">
+                    Explore
+                </div>
+
+                <a href="#stay">
+                    The Stay
+                </a>
+
+                <a href="#amenities">
+                    Amenities
+                </a>
+
+                <a href="#gallery">
+                    Gallery
+                </a>
+
+                <a href="#explore">
+                    Nearby Places
+                </a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <div class="footer-title">
+                    Property
+                </div>
+
+                <p>
+                    Kotgarh, Thanedar
+                </p>
+
+                <p>
+                    Himachal Pradesh, India
+                </p>
+
+                <a href="#host">
+                    Meet Sakshi Kukreti
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 Mountain Haven · Hosted by Sakshi Kukreti
+
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
